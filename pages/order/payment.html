@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Payment</title>
+  <link rel="stylesheet" href="../../assets/css/style.css" />
+</head>
+<body>
+  <h2>Payment Details</h2>
+  <form onsubmit="return completeOrder()">
+    <label>Name on Card: <input type="text" required></label><br><br>
+    <label>Card Number: <input type="text" required></label><br><br>
+    <label>Expiry: <input type="month" required></label><br><br>
+    <label>CVV: <input type="text" required></label><br><br>
+    <button type="submit">Pay Now</button>
+  </form>
+  <script>
+    function completeOrder() {
+      alert('Payment successful! Order placed.');
+      return false;
+    }
+  </script>
+</body>
+</html>

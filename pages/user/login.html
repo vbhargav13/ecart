@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Login</title>
+  <link rel="stylesheet" href="../../assets/css/style.css" />
+</head>
+<body>
+  <h2>Login</h2>
+  <form onsubmit="return loginUser()">
+    <label>Email: <input type="email" id="email" required></label><br><br>
+    <label>Password: <input type="password" id="password" required></label><br><br>
+    <button type="submit">Login</button>
+  </form>
+  <script>
+    function loginUser() {
+      alert('Logged in successfully!');
+      return false;
+    }
+  </script>
+</body>
+</html>
