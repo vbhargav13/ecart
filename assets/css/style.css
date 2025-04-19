@@ -2,11 +2,11 @@
 body {
   font-family: Arial, sans-serif;
   margin: 0;
-  background-color: #f0f8ff;
+  background-color: #99c8f2;
   color: #333;
 }
 header {
-  background-color: #007bff;
+  background-color: #4d0275;
   color: white;
   padding: 1rem;
   display: flex;
@@ -22,7 +22,7 @@ nav a {
 .banner {
   text-align: center;
   padding: 2rem;
-  background: #cfe2ff;
+  background: #9cf7ee;
 }
 .categories {
   display: flex;
