@@ -6,15 +6,24 @@
   <button onclick="clearCart()">Clear Cart</button>
 
 <script>
+  const cart = JSON.parse(localStorage.getItem('cart')) || [];
+  let total = 0;
+  let html = "<ul>";
+  for (let item of cart) {
+    html += `<li>${item.name} - ₹${item.price}</li>`;
+    total += item.price;
+  }
+  html += "</ul>";
+  html += `<p><strong>Total: ₹${total}</strong></p>`;
+  html += `<a href='../order/payment.html'><button>Proceed to Pay</button></a>`;
+  document.getElementById('cart-items').innerHTML = html;
+
+  // ✅ Clear Cart Function
   function clearCart() {
     localStorage.removeItem('cart');
     alert('Cart has been cleared!');
-    location.reload(); // Refresh to update UI
+    location.reload();
   }
 </script>
-
-  <button onclick="location.href='payment.html'">Proceed to Payment</button>
-</main>
-<script src="script.js"></script>
 </body>
 </html>
