@@ -1,0 +1,101 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Order Tracker</title>
+    <style>
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background: linear-gradient(135deg, #c3ecf7, #f5f7fa);
+            padding: 40px;
+            margin: 0;
+        }
+        .tracker-container {
+            background: white;
+            border-radius: 20px;
+            box-shadow: 0 8px 20px rgba(0, 0, 0, 0.15);
+            max-width: 700px;
+            margin: auto;
+            padding: 30px;
+            animation: fadeIn 1s ease-in-out;
+        }
+        h2 {
+            text-align: center;
+            color: #333;
+        }
+        .order-details {
+            font-size: 18px;
+            color: #555;
+            margin-top: 20px;
+        }
+        .status {
+            margin-top: 30px;
+            padding: 15px;
+            font-size: 20px;
+            background: #d4edda;
+            color: #155724;
+            border-left: 8px solid #28a745;
+            border-radius: 10px;
+            animation: slideIn 1s ease-in-out;
+        }
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(-10px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+        @keyframes slideIn {
+            from { transform: translateX(-100%); }
+            to { transform: translateX(0); }
+        }
+        .btn {
+            display: block;
+            margin: 40px auto 0 auto;
+            padding: 12px 24px;
+            font-size: 16px;
+            background-color: #007bff;
+            color: white;
+            border: none;
+            border-radius: 8px;
+            cursor: pointer;
+            transition: background-color 0.3s;
+            text-decoration: none;
+            text-align: center;
+        }
+        .btn:hover {
+            background-color: #0056b3;
+        }
+    </style>
+</head>
+<body>
+    <div class="tracker-container">
+        <h2>📦 Track Your Order</h2>
+        <div class="order-details">
+            <p><strong>Order ID:</strong> <span id="orderId"></span></p>
+            <p><strong>Shipping to:</strong> 123, Elm Street, Springfield, ZIP 456789</p>
+        </div>
+        <div class="status" id="orderStatus"></div>
+        <a class="btn" href="index.html">Back to Home</a>
+    </div>
+
+    <script>
+        function generateOrderId() {
+            return Math.floor(100000 + Math.random() * 900000);
+        }
+
+        function getOrderStatus() {
+            const steps = [
+                "Order Placed ✅",
+                "Packed 📦",
+                "Shipped 🚚",
+                "Out for Delivery 📬",
+                "Delivered 🎉"
+            ];
+            const index = Math.floor(Math.random() * steps.length);
+            return steps[index];
+        }
+
+        document.getElementById("orderId").innerText = generateOrderId();
+        document.getElementById("orderStatus").innerText = "Current Status: " + getOrderStatus();
+    </script>
+</body>
+</html>
