@@ -1,15 +1,120 @@
 <!DOCTYPE html>
-<html lang="en"><head><meta charset="UTF-8"><meta name="viewport" content="width=device-width, initial-scale=1"><title>Payment – E-Shop</title><link rel="stylesheet" href="style.css"></head>
-<body><main>
-  <h2>Payment</h2>
-  <form id="payment-form" class="form-container">
-    <label>Name on Card:<input type="text" id="payment-name" required></label>
-    <label>Card Number:<input type="text" id="payment-card" required></label>
-    <label>Expiry Date:<input type="text" id="payment-expiry" placeholder="MM/YY" required></label>
-    <label>CVV:<input type="text" id="payment-cvv" required></label>
-    <button type="submit">Pay Now</button>
-  </form>
-</main>
-<script src="script.js"></script>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Payment – E-Shop</title>
+  <link rel="stylesheet" href="style.css" />
+  <style>
+    body {
+      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+      background: linear-gradient(to right, #e3f2fd, #ffffff);
+      margin: 0;
+      padding: 0;
+    }
+    main {
+      max-width: 500px;
+      margin: 60px auto;
+      background-color: #fff;
+      padding: 30px 40px;
+      box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+      border-radius: 12px;
+    }
+    h2 {
+      text-align: center;
+      color: #333;
+      margin-bottom: 30px;
+    }
+    .form-container label {
+      display: block;
+      margin-bottom: 15px;
+      font-weight: bold;
+      color: #444;
+    }
+    .form-container input {
+      width: 100%;
+      padding: 10px 12px;
+      border: 1px solid #ccc;
+      border-radius: 6px;
+      margin-top: 5px;
+      font-size: 15px;
+    }
+    .form-container button[type="submit"] {
+      width: 100%;
+      padding: 12px;
+      background-color: #28a745;
+      color: white;
+      border: none;
+      border-radius: 6px;
+      font-size: 16px;
+      cursor: pointer;
+      margin-top: 20px;
+      transition: background-color 0.3s;
+    }
+    .form-container button[type="submit"]:hover {
+      background-color: #218838;
+    }
+    .nav-buttons {
+      text-align: center;
+      margin-top: 30px;
+    }
+    .nav-buttons a button {
+      padding: 10px 20px;
+      font-size: 15px;
+      border: none;
+      border-radius: 6px;
+      margin: 10px;
+      cursor: pointer;
+      transition: 0.3s;
+    }
+    .nav-buttons a:first-child button {
+      background-color: #007bff;
+      color: white;
+    }
+    .nav-buttons a:first-child button:hover {
+      background-color: #0056b3;
+    }
+    .nav-buttons a:last-child button {
+      background-color: #17a2b8;
+      color: white;
+    }
+    .nav-buttons a:last-child button:hover {
+      background-color: #117a8b;
+    }
+  </style>
+</head>
+<body>
+  <main>
+    <h2>Secure Payment</h2>
+    <form id="payment-form" class="form-container">
+      <label>
+        Name on Card:
+        <input type="text" id="payment-name" placeholder="John Doe" required />
+      </label>
+      <label>
+        Card Number:
+        <input type="text" id="payment-card" placeholder="1234 5678 9012 3456" required />
+      </label>
+      <label>
+        Expiry Date:
+        <input type="text" id="payment-expiry" placeholder="MM/YY" required />
+      </label>
+      <label>
+        CVV:
+        <input type="text" id="payment-cvv" placeholder="123" required />
+      </label>
+      <button type="submit">Pay Now</button>
+    </form>
+
+    <div class="nav-buttons">
+      <a href="confirmation.html">
+        <button>Go to Confirmation</button>
+      </a>
+      <a href="order-tracker.html">
+        <button>Track Order</button>
+      </a>
+    </div>
+  </main>
+  <script src="script.js"></script>
 </body>
 </html>
