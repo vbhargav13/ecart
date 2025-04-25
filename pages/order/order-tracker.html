@@ -94,6 +94,11 @@
 
         document.getElementById("orderId").innerText = generateOrderId();
         document.getElementById("orderStatus").innerText = "Current Status: " + getOrderStatus();
+
+    // Display saved address
+    const savedAddress = localStorage.getItem('customerAddress') || 'N/A';
+    document.getElementById('customer-address-display').innerText = 'Delivery Address: ' + savedAddress;
+
     </script>
 </body>
 </html>

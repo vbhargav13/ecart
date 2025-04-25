@@ -88,7 +88,24 @@
 <body>
   <main>
     <h2>Secure Payment</h2>
-    <form id="payment-form" class="form-container">
+    
+    <form id="customer-form" class="form-container">
+      <label>
+        Name:
+        <input type="text" id="customer-name" placeholder="John Doe" required />
+      </label>
+      <label>
+        Address:
+        <textarea id="customer-address" placeholder="123 Main St, City, Country" required></textarea>
+      </label>
+      <label>
+        Email:
+        <input type="email" id="customer-email" placeholder="john@example.com" required />
+      </label>
+      <button type="submit">Make Payment</button>
+    </form>
+
+    <form id="card-form" style="display:none;" class="form-container">
       <label>
         Name on Card:
         <input type="text" id="payment-name" placeholder="John Doe" required />
@@ -108,7 +125,7 @@
       <button type="submit">Pay Now</button>
     </form>
 
-    <div class="nav-buttons">
+    <div class="nav-buttons" style="display:none;">
       <a href="confirmation.html">
         <button type="button">Go to Confirmation</button>
       </a>
@@ -118,5 +135,28 @@
     </div>
   </main>
   <script src="script.js"></script>
+
+<script>
+  document.getElementById('customer-form').addEventListener('submit', function(e) {
+    e.preventDefault();
+    const name = document.getElementById('customer-name').value;
+    const address = document.getElementById('customer-address').value;
+    const email = document.getElementById('customer-email').value;
+    localStorage.setItem('customerName', name);
+    localStorage.setItem('customerAddress', address);
+    localStorage.setItem('customerEmail', email);
+    document.getElementById('customer-form').style.display = 'none';
+    document.getElementById('card-form').style.display = 'block';
+  });
+
+  document.getElementById('card-form').addEventListener('submit', function(e) {
+    e.preventDefault();
+    // In real scenario, integrate payment gateway here
+    alert('Payment successful!');
+    document.getElementById('card-form').style.display = 'none';
+    document.querySelector('.nav-buttons').style.display = 'block';
+  });
+</script>
+
 </body>
 </html>
