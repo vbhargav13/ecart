@@ -1,4 +1,3 @@
-
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -12,68 +11,37 @@
             margin: 0;
         }
         .tracker-container {
-            background: white;
+            background: #fff;
             border-radius: 20px;
-            box-shadow: 0 8px 20px rgba(0, 0, 0, 0.15);
-            max-width: 700px;
-            margin: auto;
             padding: 30px;
-            animation: fadeIn 1s ease-in-out;
-        }
-        h2 {
+            max-width: 500px;
+            margin: auto;
             text-align: center;
-            color: #333;
+            box-shadow: 0 8px 20px rgba(0,0,0,0.1);
         }
-        .order-details {
-            font-size: 18px;
-            color: #555;
-            margin-top: 20px;
+        .tracker-container h2 {
+            margin-bottom: 20px;
         }
-        .status {
-            margin-top: 30px;
-            padding: 15px;
-            font-size: 20px;
-            background: #d4edda;
-            color: #155724;
-            border-left: 8px solid #28a745;
-            border-radius: 10px;
-            animation: slideIn 1s ease-in-out;
-        }
-        @keyframes fadeIn {
-            from { opacity: 0; transform: translateY(-10px); }
-            to { opacity: 1; transform: translateY(0); }
-        }
-        @keyframes slideIn {
-            from { transform: translateX(-100%); }
-            to { transform: translateX(0); }
-        }
-        .btn {
-            display: block;
-            margin: 40px auto 0 auto;
-            padding: 12px 24px;
+        .tracker-container p {
             font-size: 16px;
-            background-color: #007bff;
-            color: white;
-            border: none;
-            border-radius: 8px;
-            cursor: pointer;
-            transition: background-color 0.3s;
-            text-decoration: none;
-            text-align: center;
+            margin: 10px 0;
         }
-        .btn:hover {
-            background-color: #0056b3;
+        .order-id {
+            font-weight: bold;
+            font-size: 18px;
         }
     </style>
 </head>
 <body>
     <div class="tracker-container">
-        <h2>📦 </h2>
-        <div class="order-details">
-            <p><strong>Order ID:</strong> <span id="orderId"></span></p>
-            <p><strong>Shipping to:</strong> 123, Elm Street, Springfield, ZIP 456789</p>
-        </div>
-   
+        <h2>Order Tracker</h2>
+        <!-- User’s address -->
+        <p id="customer-address-display" style="font-weight:bold;"></p>
+        <!-- Random 6-digit Order ID -->
+        <p class="order-id">Order ID: <span id="orderId"></span></p>
+        <!-- Randomized order status -->
+        <p id="orderStatus"></p>
+    </div>
 
     <script>
         function generateOrderId() {
@@ -82,23 +50,24 @@
 
         function getOrderStatus() {
             const steps = [
-                "Order Placed ✅",
+                "Order Received 📥",
+                "Processing ⚙️",
                 "Packed 📦",
                 "Shipped 🚚",
                 "Out for Delivery 📬",
                 "Delivered 🎉"
             ];
-            const index = Math.floor(Math.random() * steps.length);
-            return steps[index];
+            return steps[Math.floor(Math.random() * steps.length)];
         }
 
+        // Populate Order ID & Status
         document.getElementById("orderId").innerText = generateOrderId();
         document.getElementById("orderStatus").innerText = "Current Status: " + getOrderStatus();
 
-    // Display saved address
-    const savedAddress = localStorage.getItem('customerAddress') || 'N/A';
-    document.getElementById('customer-address-display').innerText = 'Delivery Address: ' + savedAddress;
-
+        // Pull and display delivery address from payment page
+        const savedAddress = localStorage.getItem('customerAddress') || 'N/A';
+        document.getElementById('customer-address-display').innerText =
+            'Delivery Address: ' + savedAddress;
     </script>
 </body>
 </html>
